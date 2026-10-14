@@ -31,6 +31,7 @@ class ShopSettingSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'shopName', 'shopTagline', 'hotline', 'whatsappNumber',
             'supportEmail', 'address', 'logoUrl', 'faviconUrl',
+            'headerLogoUrl', 'footerLogoUrl', 'extraConfig',
             'whatsappProvider', 'whatsappToken', 'whatsappPhoneNumberId',
             'whatsappInstanceId', 'adminAlertPhone', 'whatsappEnabled',
             'emailHost', 'emailPort', 'emailUseTls', 'emailUseSsl',

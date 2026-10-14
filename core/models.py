@@ -137,6 +137,9 @@ class ShopSetting(models.Model):
     address = models.TextField(blank=True, default='AmarDokan Head Office, Dhanmondi 27, Dhaka, Bangladesh')
     logoUrl = models.TextField(blank=True, default='')
     faviconUrl = models.TextField(blank=True, default='')
+    headerLogoUrl = models.TextField(blank=True, default='')
+    footerLogoUrl = models.TextField(blank=True, default='')
+    extraConfig = models.JSONField(default=dict, blank=True)
 
     # WhatsApp Gateway Configuration
     whatsappProvider = models.CharField(max_length=30, choices=WHATSAPP_CHOICES, default='META_CLOUD')

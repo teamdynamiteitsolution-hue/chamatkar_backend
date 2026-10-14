@@ -578,7 +578,8 @@ def shop_settings_view(request):
     data = request.data
     fields = [
         'shopName', 'shopTagline', 'hotline', 'whatsappNumber', 'supportEmail',
-        'address', 'logoUrl', 'faviconUrl', 'whatsappProvider', 'whatsappToken',
+        'address', 'logoUrl', 'faviconUrl', 'headerLogoUrl', 'footerLogoUrl', 'extraConfig',
+        'whatsappProvider', 'whatsappToken',
         'whatsappPhoneNumberId', 'whatsappInstanceId', 'adminAlertPhone',
         'emailHost', 'emailPort', 'emailUseTls', 'emailUseSsl',
         'emailHostUser', 'emailHostPassword', 'defaultFromEmail',
