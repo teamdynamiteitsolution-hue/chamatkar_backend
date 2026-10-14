@@ -43,7 +43,7 @@ def send_greenweb_sms(phone: str, message_text: str) -> dict:
             req = urllib.request.Request(
                 url,
                 data=data,
-                headers={'User-Agent': 'AmarDokan-BD-ECommerce/1.0'}
+                headers={'User-Agent': 'Chamatkar-BD-ECommerce/1.0'}
             )
             with urllib.request.urlopen(req, timeout=5) as response:
                 resp_text = response.read().decode('utf-8', errors='ignore')
@@ -243,7 +243,7 @@ def get_courier_tracking_urls(courier_provider: str, tracking_id: str, order_id:
     elif 'ecourier' in prov_lower:
         carrier_url = f"https://ecourier.com.bd/tracking?ecr={tracking_id}"
 
-    native_url = f"https://amardokan.com/track-order?id={order_id}"
+    native_url = f"https://chamatkar.com/track-order?id={order_id}"
 
     return {
         'carrier_url': carrier_url,
@@ -269,9 +269,9 @@ def send_order_email(order, event: str) -> dict:
     now_str = time.strftime('%Y-%m-%d %H:%M:%S')
 
     # Shop Info
-    shop_name = "AmarDokan"
+    shop_name = "Chamatkar"
     hotline = "09612345678"
-    support_email = "support@amardokan.com"
+    support_email = "support@chamatkar.com"
     try:
         from core.models import ShopSetting
         s = ShopSetting.get_settings()
@@ -524,7 +524,7 @@ def send_order_email(order, event: str) -> dict:
 
     # Check if ShopSetting has custom SMTP credentials configured
     conn = None
-    from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', f'{shop_name} <orders@amardokan.com>')
+    from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', f'{shop_name} <orders@chamatkar.com>')
     provider_name = 'Django_SMTP_Email'
     try:
         from core.models import ShopSetting
@@ -644,7 +644,7 @@ def dispatch_order_notifications(order, event: str):
     tracking_urls = get_courier_tracking_urls(prov_name, trkid, order.id)
 
     # Dynamic Shop settings
-    shop_name = "AmarDokan"
+    shop_name = "Chamatkar"
     hotline = "09612345678"
     admin_alert_phone = ""
     try:
@@ -700,7 +700,7 @@ def dispatch_order_notifications(order, event: str):
             f"📦 *আইটেম:* {items_list}\n"
             f"💰 *মোট প্রদেয়:* ৳{order.total} ({order.paymentMethod})\n"
             f"📍 *ঠিকানা:* {address.get('fullAddress', '')}, {address.get('district', '')}\n\n"
-            f"অর্ডার ট্র্যাক করতে ভিজিট করুন: https://amardokan.com/track-order?id={order.id}\n"
+            f"অর্ডার ট্র্যাক করতে ভিজিট করুন: https://chamatkar.com/track-order?id={order.id}\n"
             f"হেল্পলাইন: {hotline}\n"
             f"ধন্যবাদ!"
         )
@@ -709,7 +709,7 @@ def dispatch_order_notifications(order, event: str):
             f"✅ *অর্ডার কনফার্ম হয়েছে - {shop_name}*\n\n"
             f"প্রিয় *{customer_name}*,\n"
             f"আপনার অর্ডার *#{order.id}* সফলভাবে কনফার্ম করা হয়েছে এবং প্যাকিং চলছে।\n\n"
-            f"📲 লাইভ স্ট্যাটাস চেক করুন:\nhttps://amardokan.com/track-order?id={order.id}\n\n"
+            f"📲 লাইভ স্ট্যাটাস চেক করুন:\nhttps://chamatkar.com/track-order?id={order.id}\n\n"
             f"ধন্যবাদ!"
         )
     elif event == 'SHIPMENT_CREATED':
@@ -730,7 +730,7 @@ def dispatch_order_notifications(order, event: str):
             f"প্রিয় *{customer_name}*,\n"
             f"আপনার অর্ডার *#{order.id}* ডেলিভারি রাইডারের কাছে রয়েছে। আজই আপনার ঠিকানায় পৌঁছে যাবে।\n\n"
             f"💵 *কালেকশন মূল্য:* ৳{collection_amount}\n"
-            f"📲 লাইভ ট্র্যাক করুন:\nhttps://amardokan.com/track-order?id={order.id}\n\n"
+            f"📲 লাইভ ট্র্যাক করুন:\nhttps://chamatkar.com/track-order?id={order.id}\n\n"
             f"অনুগ্রহ করে ফোন সচল রাখুন।"
         )
     elif event == 'DELIVERED':
@@ -797,7 +797,7 @@ def send_manual_notification(channel: str, recipient: str, message_text: str, te
         prov = res.get('provider', 'Greenweb_SMS')
     elif channel_upper == 'EMAIL':
         conn = None
-        from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', 'Chomotkar BD <orders@amardokan.com>')
+        from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', 'Chamatkar BD <orders@chamatkar.com>')
         prov = 'Django_SMTP_Email'
         try:
             from core.models import ShopSetting
@@ -820,7 +820,7 @@ def send_manual_notification(channel: str, recipient: str, message_text: str, te
         except Exception:
             pass
 
-        subject = f"Notification from AmarDokan - #{order_id}"
+        subject = f"Notification from Chamatkar - #{order_id}"
         try:
             msg = EmailMultiAlternatives(
                 subject=subject,
@@ -830,10 +830,10 @@ def send_manual_notification(channel: str, recipient: str, message_text: str, te
                 connection=conn
             )
             html_body = f"""<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px;">
-                <h2 style="color: #0f172a; margin-top: 0;">AmarDokan Notice</h2>
+                <h2 style="color: #0f172a; margin-top: 0;">Chamatkar Notice</h2>
                 <div style="font-size: 15px; color: #334155; line-height: 1.6; white-space: pre-wrap;">{message_text}</div>
                 <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
-                <p style="font-size: 12px; color: #94a3b8; margin-bottom: 0;">AmarDokan E-Commerce Platform</p>
+                <p style="font-size: 12px; color: #94a3b8; margin-bottom: 0;">Chamatkar E-Commerce Platform</p>
             </div>"""
             msg.attach_alternative(html_body, "text/html")
             msg.send(fail_silently=False)
@@ -872,7 +872,7 @@ def send_test_smtp_email(recipient_email: str):
     """
     from core.models import ShopSetting
     s = ShopSetting.get_settings()
-    shop_name = s.shopName or "AmarDokan BD"
+    shop_name = s.shopName or "Chamatkar BD"
     subject = f"🧪 {shop_name} SMTP Email Gateway Connection Test"
     body = (
         f"Hello,\n\n"
@@ -894,7 +894,7 @@ def send_test_smtp_email(recipient_email: str):
     </div>"""
 
     conn = None
-    from_email = s.defaultFromEmail or getattr(settings, 'DEFAULT_FROM_EMAIL', f'{shop_name} <orders@amardokan.com>')
+    from_email = s.defaultFromEmail or getattr(settings, 'DEFAULT_FROM_EMAIL', f'{shop_name} <orders@chamatkar.com>')
     provider_name = 'Django_Console_Email'
 
     if s.emailHostUser and s.emailHostPassword:

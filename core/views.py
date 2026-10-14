@@ -21,7 +21,7 @@ def api_root(request):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AmarDokan Backend Engine • Django REST</title>
+  <title>Chamatkar Backend Engine • Django REST</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
@@ -177,7 +177,7 @@ def api_root(request):
       <span class="dot"></span>
       Django REST API Server Online
     </div>
-    <h1>AmarDokan Bangladesh Native E-Commerce Backend</h1>
+    <h1>Chamatkar Bangladesh Native E-Commerce Backend</h1>
     <p class="lead">
       স্বাগতম! আপনার Django REST Framework ব্যাকএন্ড সফলভাবে চালু হয়েছে এবং সক্রিয় রয়েছে।<br>
       ই-কমার্স স্টোরফ্রন্ট ব্রাউজ ও কেনাকাটা করতে নিচের সবুজ বাটনে ক্লিক করে ফ্রন্টএন্ডে যান।
@@ -245,7 +245,7 @@ def api_root(request):
 
     return Response({
         'status': 'online',
-        'platform': 'AmarDokan Bangladesh Native E-Commerce Backend (Django REST)',
+        'platform': 'Chamatkar Bangladesh Native E-Commerce Backend (Django REST)',
         'version': '1.0.0',
         'frontend_url': 'http://localhost:3001',
         'endpoints': {
@@ -270,7 +270,7 @@ def api_root(request):
 def health_check(request):
     return Response({
         'status': 'ok',
-        'platform': 'AmarDokan Bangladesh Native E-Commerce (Django REST)',
+        'platform': 'Chamatkar Bangladesh Native E-Commerce (Django REST)',
         'version': '1.0.0',
         'timestamp': timezone.localtime().isoformat()
     })
@@ -541,7 +541,7 @@ def facebook_catalog_feed_view(request):
             <g:description><![CDATA[{desc}]]></g:description>
             <g:link>{link}</g:link>
             <g:image_link>{image_url}</g:image_link>
-            <g:brand>AmarDokan</g:brand>
+            <g:brand>Chamatkar</g:brand>
             <g:condition>new</g:condition>
             <g:availability>{availability}</g:availability>
             <g:price>{p.price} BDT</g:price>
@@ -550,7 +550,7 @@ def facebook_catalog_feed_view(request):
         xml_content = f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
     <channel>
-        <title>AmarDokan Product Catalog Feed</title>
+        <title>Chamatkar Product Catalog Feed</title>
         <link>{host}</link>
         <description>Live automated product feed for Facebook &amp; Instagram Dynamic Ads</description>
         {''.join(items_xml)}
@@ -635,7 +635,7 @@ def test_whatsapp_view(request):
         recipient = settings.adminAlertPhone or settings.whatsappNumber or '01712849201'
 
     if not message:
-        shop_name = settings.shopName or 'AmarDokan'
+        shop_name = settings.shopName or 'Chamatkar'
         message = f"🧪 *{shop_name} WhatsApp Test Message*\n\nআপনার WhatsApp গেটওয়ে সফলভাবে সংযুক্ত হয়েছে! এখন থেকে নতুন অর্ডার আসলে স্বয়ংক্রিয়ভাবে নোটিফিকেশন পৌঁছে যাবে।"
 
     try:

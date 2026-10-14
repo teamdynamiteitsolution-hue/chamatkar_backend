@@ -129,12 +129,12 @@ class ShopSetting(models.Model):
     ]
 
     id = models.CharField(max_length=64, primary_key=True, default='default_shop_setting')
-    shopName = models.CharField(max_length=200, default='AmarDokan BD')
+    shopName = models.CharField(max_length=200, default='Chamatkar BD')
     shopTagline = models.TextField(blank=True, default='বাংলাদেশের ১ নম্বর ট্রাস্টেড প্রিমিয়াম গ্যাজেট ও লাইফস্টাইল শপ')
     hotline = models.CharField(max_length=50, default='09612345678')
     whatsappNumber = models.CharField(max_length=50, default='01712849201')
-    supportEmail = models.CharField(max_length=150, default='support@amardokan.com')
-    address = models.TextField(blank=True, default='AmarDokan Head Office, Dhanmondi 27, Dhaka, Bangladesh')
+    supportEmail = models.CharField(max_length=150, default='support@chamatkar.com')
+    address = models.TextField(blank=True, default='Chamatkar Head Office, Dhanmondi 27, Dhaka, Bangladesh')
     logoUrl = models.TextField(blank=True, default='')
     faviconUrl = models.TextField(blank=True, default='')
     headerLogoUrl = models.TextField(blank=True, default='')
@@ -156,7 +156,7 @@ class ShopSetting(models.Model):
     emailUseSsl = models.BooleanField(default=False)
     emailHostUser = models.CharField(max_length=150, blank=True, default='')
     emailHostPassword = models.CharField(max_length=255, blank=True, default='')
-    defaultFromEmail = models.CharField(max_length=200, blank=True, default='AmarDokan BD <orders@amardokan.com>')
+    defaultFromEmail = models.CharField(max_length=200, blank=True, default='Chamatkar BD <orders@chamatkar.com>')
     emailEnabled = models.BooleanField(default=True)
     # Shop Language & Translation Configuration
     LANGUAGE_MODE_CHOICES = [
@@ -181,12 +181,12 @@ class ShopSetting(models.Model):
         obj, _ = cls.objects.get_or_create(
             id='default_shop_setting',
             defaults={
-                'shopName': 'AmarDokan BD',
+                'shopName': 'Chamatkar BD',
                 'shopTagline': 'বাংলাদেশের ১ নম্বর ট্রাস্টেড প্রিমিয়াম গ্যাজেট ও লাইফস্টাইল শপ',
                 'hotline': '09612345678',
                 'whatsappNumber': '01712849201',
-                'supportEmail': 'support@amardokan.com',
-                'address': 'AmarDokan Head Office, Dhanmondi 27, Dhaka, Bangladesh',
+                'supportEmail': 'support@chamatkar.com',
+                'address': 'Chamatkar Head Office, Dhanmondi 27, Dhaka, Bangladesh',
                 'whatsappProvider': 'META_CLOUD',
                 'whatsappEnabled': True
             }
@@ -231,7 +231,7 @@ class StaffMember(models.Model):
                 name='সুপার অ্যাডমিন (Owner)',
                 username='admin',
                 phone='01712849201',
-                email='admin@amardokan.com',
+                email='admin@chamatkar.com',
                 password='admin1234',
                 role='ADMIN',
                 status='ACTIVE',
@@ -242,7 +242,7 @@ class StaffMember(models.Model):
                 name='অপারেশনস ম্যানেজার (Operations)',
                 username='manager',
                 phone='01812345678',
-                email='manager@amardokan.com',
+                email='manager@chamatkar.com',
                 password='manager1234',
                 role='MANAGER',
                 status='ACTIVE',
@@ -253,7 +253,7 @@ class StaffMember(models.Model):
                 name='ডেলিভারি ডিসপ্যাচার (Logistics)',
                 username='dispatcher',
                 phone='01912345678',
-                email='dispatcher@amardokan.com',
+                email='dispatcher@chamatkar.com',
                 password='dispatcher1234',
                 role='DISPATCHER',
                 status='ACTIVE',

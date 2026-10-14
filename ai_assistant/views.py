@@ -39,7 +39,7 @@ def ai_assistant_view(request):
             st = order.get('status', 'প্রসেসিং')
             return {
                 'success': True,
-                'content': f"আসসালামু আলাইকুম {c_name}, AmarDokan-এ যোগাযোগ করার জন্য ধন্যবাদ। আপনার অর্ডার #{ord_id} বর্তমানে \"{st}\" অবস্থায় রয়েছে। আপনার পার্সেলটি দ্রুত ডেলিভারি নিশ্চিত করতে আমাদের ডেলিভারি টিম কাজ করছে। ট্র্যাকিং লিংক: https://amardokan.com/track-order?id={ord_id}",
+                'content': f"আসসালামু আলাইকুম {c_name}, Chamatkar-এ যোগাযোগ করার জন্য ধন্যবাদ। আপনার অর্ডার #{ord_id} বর্তমানে \"{st}\" অবস্থায় রয়েছে। আপনার পার্সেলটি দ্রুত ডেলিভারি নিশ্চিত করতে আমাদের ডেলিভারি টিম কাজ করছে। ট্র্যাকিং লিংক: https://chamatkar.com/track-order?id={ord_id}",
                 'source': 'local_generator'
             }
         elif req_type == 'risk_analysis':
@@ -50,7 +50,7 @@ def ai_assistant_view(request):
             }
         return {
             'success': True,
-            'content': "AmarDokan AI Assistant: আপনার অনুরোধটি সফলভাবে প্রসেস করা হয়েছে।",
+            'content': "Chamatkar AI Assistant: আপনার অনুরোধটি সফলভাবে প্রসেস করা হয়েছে।",
             'source': 'local_generator'
         }
 
@@ -59,7 +59,7 @@ def ai_assistant_view(request):
 
     try:
         client = genai.Client(api_key=api_key)
-        system_instruction = 'You are an expert Bangladesh native e-commerce assistant for AmarDokan platform. Provide concise, professional, sales-driven responses in natural conversational Bangla or Banglish where appropriate.'
+        system_instruction = 'You are an expert Bangladesh native e-commerce assistant for Chamatkar platform. Provide concise, professional, sales-driven responses in natural conversational Bangla or Banglish where appropriate.'
         prompt_content = prompt
 
         if req_type == 'product_copy':

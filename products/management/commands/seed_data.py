@@ -6,7 +6,7 @@ from order.models import Order
 from core.models import AuditLog, MarketingEvent, NotificationLog
 
 class Command(BaseCommand):
-    help = 'Seeds initial AmarDokan database with Bangladesh native products, couriers, and configs'
+    help = 'Seeds initial Chamatkar database with Bangladesh native products, couriers, and configs'
 
     def handle(self, *args, **kwargs):
         self.stdout.write("Ensuring core demo products exist...")
@@ -293,7 +293,7 @@ class Command(BaseCommand):
                 'channel': 'SMS',
                 'recipient': '01712849201',
                 'templateName': 'ORDER_CONFIRMED',
-                'messageText': 'AmarDokan: Dear Zakir Hossain, order #BD-849201 of ৳1,910 is confirmed! Your parcel is being packed. Helpline: 09612345678',
+                'messageText': 'Chamatkar: Dear Zakir Hossain, order #BD-849201 of ৳1,910 is confirmed! Your parcel is being packed. Helpline: 09612345678',
                 'status': 'DELIVERED',
                 'timestamp': '2026-09-22 09:42:10',
                 'provider': 'Greenweb_SMS',
@@ -304,7 +304,7 @@ class Command(BaseCommand):
         self.stdout.write("Ensuring Django Admin Superuser exists...")
         admin_username = os.getenv('ADMIN_USER', 'admin')
         admin_password = os.getenv('ADMIN_PASS', 'admin1234')
-        admin_email = os.getenv('ADMIN_EMAIL', 'admin@amardokan.com')
+        admin_email = os.getenv('ADMIN_EMAIL', 'admin@chamatkar.com')
         
         from django.contrib.auth import get_user_model
         User = get_user_model()

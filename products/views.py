@@ -411,7 +411,7 @@ def upload_image_view(request):
             'message': 'No image file provided in request.'
         }, status=status.HTTP_400_BAD_REQUEST)
 
-    target_folder = (request.data.get('folder') or os.getenv('CLOUDINARY_FOLDER', 'amardokan/products')).strip()
+    target_folder = (request.data.get('folder') or os.getenv('CLOUDINARY_FOLDER', 'Chamatkar/products')).strip()
     res = upload_image(file_obj, folder=target_folder)
     if res.get('success'):
         AuditLog.log(

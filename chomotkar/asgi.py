@@ -1,5 +1,5 @@
 """
-ASGI config for amardokan_core project.
+ASGI config for chamatkar_core project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

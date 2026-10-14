@@ -164,7 +164,7 @@ def initiate_sslcommerz_payment(order_id, amount=None, customer_data=None, reque
         address = order.address if isinstance(order.address, dict) else {}
         customer_name = address.get('customerName') or (customer_data.get('customerName') if customer_data else 'Customer')
         customer_phone = address.get('phone') or (customer_data.get('phone') if customer_data else '01700000000')
-        customer_email = address.get('email') or (customer_data.get('email') if customer_data else f"{customer_phone}@customer.amardokan.com")
+        customer_email = address.get('email') or (customer_data.get('email') if customer_data else f"{customer_phone}@customer.chamatkar.com")
         customer_address = address.get('fullAddress') or (customer_data.get('fullAddress') if customer_data else 'Dhaka, Bangladesh')
         customer_district = address.get('district') or (customer_data.get('district') if customer_data else 'Dhaka')
     else:
@@ -172,7 +172,7 @@ def initiate_sslcommerz_payment(order_id, amount=None, customer_data=None, reque
         cdata = customer_data or {}
         customer_name = cdata.get('customerName') or cdata.get('name') or 'Customer'
         customer_phone = cdata.get('phone') or '01700000000'
-        customer_email = cdata.get('email') or f"{customer_phone}@customer.amardokan.com"
+        customer_email = cdata.get('email') or f"{customer_phone}@customer.chamatkar.com"
         customer_address = cdata.get('fullAddress') or cdata.get('address') or 'Dhaka, Bangladesh'
         customer_district = cdata.get('district') or 'Dhaka'
 
@@ -187,7 +187,7 @@ def initiate_sslcommerz_payment(order_id, amount=None, customer_data=None, reque
     # Generate a unique Transaction ID
     timestamp_suffix = int(time.time() * 1000) % 100000000
     clean_order_id = str(order_id).replace('-', '_')
-    tran_id = f"AMAR_{clean_order_id}_{timestamp_suffix}"
+    tran_id = f"CMK_{clean_order_id}_{timestamp_suffix}"
 
     success_url = f"{backend_url}/api/v1/payments/sslcommerz/success/"
     fail_url = f"{backend_url}/api/v1/payments/sslcommerz/fail/"
@@ -205,11 +205,11 @@ def initiate_sslcommerz_payment(order_id, amount=None, customer_data=None, reque
         'cancel_url': cancel_url,
         'ipn_url': ipn_url,
         'shipping_method': 'NO',
-        'product_name': f"AmarDokan Order #{order_id}",
+        'product_name': f"Chamatkar Order #{order_id}",
         'product_category': 'Ecommerce',
         'product_profile': 'general',
         'cus_name': customer_name,
-        'cus_email': customer_email or f"customer_{timestamp_suffix}@amardokan.com",
+        'cus_email': customer_email or f"customer_{timestamp_suffix}@chamatkar.com",
         'cus_add1': customer_address or 'Dhaka, Bangladesh',
         'cus_city': customer_district or 'Dhaka',
         'cus_state': customer_district or 'Dhaka',

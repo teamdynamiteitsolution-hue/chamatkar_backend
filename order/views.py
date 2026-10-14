@@ -149,7 +149,7 @@ def checkout_view(request):
                 id=f"usr-{cust_phone}-{int(timezone.now().timestamp())}",
                 name=address.get('customerName') or 'সম্মানিত গ্রাহক',
                 phone=cust_phone,
-                email=cust_email or f"{cust_phone}@customer.amardokan.com",
+                email=cust_email or f"{cust_phone}@customer.chamatkar.com",
                 district=district or 'Dhaka',
                 thana=address.get('thana') or 'Mirpur',
                 fullAddress=address.get('fullAddress') or '',

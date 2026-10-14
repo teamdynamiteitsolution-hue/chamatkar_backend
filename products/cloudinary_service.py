@@ -46,7 +46,7 @@ def upload_image(file_obj, folder=None):
     Returns a dict with 'url', 'public_id', 'storage', and 'success'.
     """
     if not folder:
-        folder = os.getenv('CLOUDINARY_FOLDER', 'amardokan/products').strip() or "amardokan/products"
+        folder = os.getenv('CLOUDINARY_FOLDER', 'Chamatkar/products').strip() or "Chamatkar/products"
     if is_cloudinary_configured():
         configure_cloudinary()
         try:

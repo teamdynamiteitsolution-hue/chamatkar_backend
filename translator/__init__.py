@@ -1,2 +1,2 @@
-# Realtime Translator App for AmarDokan
+# Realtime Translator App for Chamatkar
 default_app_config = 'translator.apps.TranslatorConfig'

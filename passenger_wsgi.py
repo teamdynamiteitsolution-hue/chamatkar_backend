@@ -38,7 +38,7 @@ except Exception as e:
         status = '500 Internal Server Error'
         output = f"""
         <div style="font-family: Arial, sans-serif; padding: 30px; background: #fff5f5; color: #9b2c2c; border: 1px solid #feb2b2; border-radius: 8px; margin: 20px;">
-            <h2 style="margin-top:0;">AmarDokan - Django Startup Diagnostics</h2>
+            <h2 style="margin-top:0;">Chamatkar - Django Startup Diagnostics</h2>
             <pre style="background: #1a202c; color: #fed7d7; padding: 15px; border-radius: 6px; font-size: 13px; overflow: auto;">{error_msg}</pre>
         </div>
         """.encode('utf-8')

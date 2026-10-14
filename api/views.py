@@ -10,7 +10,7 @@ from django.core.management import call_command
 def api_status(request):
     return Response({
         'status': 'healthy',
-        'platform': 'AmarDokan - Chomotkar Native E-Commerce Core',
+        'platform': 'Chamatkar Native E-Commerce Core',
         'version': '1.0.0',
         'endpoints': {
             'products': '/api/v1/products',

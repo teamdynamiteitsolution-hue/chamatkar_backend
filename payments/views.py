@@ -115,7 +115,7 @@ def _render_redirect_page(target_url, title, status_text, is_success=True):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title} - AmarDokan</title>
+    <title>{title} - Chamatkar</title>
     <meta http-equiv="refresh" content="1;url={target_url}">
     <style>
         * {{ margin: 0; padding: 0; box-sizing: border-box; }}
@@ -362,7 +362,7 @@ def sandbox_simulator_view(request):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSLCOMMERZ Sandbox Gateway Simulator - AmarDokan</title>
+    <title>SSLCOMMERZ Sandbox Gateway Simulator - Chamatkar</title>
     <style>
         * {{ margin: 0; padding: 0; box-sizing: border-box; }}
         body {{
@@ -593,7 +593,7 @@ def sandbox_simulator_view(request):
             </div>
 
             <div class="footer-note">
-                SSLCOMMERZ Multi-Card Sandbox Environment &bull; AmarDokan E-Commerce Platform
+                SSLCOMMERZ Multi-Card Sandbox Environment &bull; Chamatkar E-Commerce Platform
             </div>
         </div>
     </div>
